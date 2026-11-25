@@ -13,13 +13,11 @@ function Login() {
 
     try {
 
-      const response = await axios.post(
-        "http://localhost:8080/users/login",
-        {
-          username,
-          password
-        }
-      );
+     const response = await axios.post(
+  `${import.meta.env.VITE_API_URL}/users/login`,
+  { username, password }
+);
+      
 
       localStorage.setItem(
         "token",
