@@ -59,9 +59,8 @@ public class SecurityConfig {
         CorsConfiguration configuration =
                 new CorsConfiguration();
 
-        configuration.setAllowedOrigins(
-                List.of("http://localhost:5173"));
-
+        Access to XMLHttpRequest at 'https://order-billing-system.onrender.com/users/login' from origin 'https://order-billing-system-frontend.vercel.app' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+index-vorsA38Q.js:14  POST https://order-billing-system.onrender.com/users/login net::ERR_FAILED
         configuration.setAllowedMethods(
                 List.of(
                         "GET",
