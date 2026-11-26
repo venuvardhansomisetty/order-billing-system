@@ -10,19 +10,53 @@ function Login() {
     const navigate = useNavigate();
 
     const login = async () => {
-        try {
-            const response = await axios.post(
-                `${API_URL}/users/login`,
-                { username, password }
-            );
+    try {
+        const response = await axios.post(
+            `${API_URL}/users/login`,
+            { username, password }
+        );
 
-            localStorage.setItem("token", response.data);
-            navigate("/dashboard");
-        } catch (error) {
-            console.error("Login failed:", error);
-            alert("Login failed. Check your username, password, and backend deployment.");
+        const data = response.data;
+        let token;
+
+        if (typeof data === "string") {
+            token = data.trim();
+
+            // Handle a response that is a JSON-encoded string.
+            try {
+                const parsed = JSON.parse(token);
+                if (typeof parsed === "string") {
+                    token = parsed;
+                } else if (parsed && typeof parsed === "object") {
+                    token =
+                        parsed.token ??
+                        parsed.accessToken ??
+                        parsed.jwt;
+                }
+            } catch {
+                // The response was plain text, so keep it as-is.
+            }
+        } else if (data && typeof data === "object") {
+            token =
+                data.token ??
+                data.accessToken ??
+                data.jwt ??
+                data.data?.token;
         }
-    };
+
+        if (typeof token !== "string" || !token.trim()) {
+            console.error("Unexpected login response format");
+            alert("Login succeeded, but the server did not return a readable token.");
+            return;
+        }
+
+        localStorage.setItem("token", token.trim());
+        navigate("/dashboard");
+    } catch (error) {
+        console.error("Login failed:", error);
+        alert("Login failed. Check your username and password.");
+    }
+};
 
     return (
         <div className="login-container">
