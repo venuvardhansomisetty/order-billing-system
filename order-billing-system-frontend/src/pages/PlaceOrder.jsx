@@ -25,14 +25,14 @@ function PlaceOrder() {
     };
 
     axios.get(
-      "http://localhost:8080/customers",
+      "https://order-billing-system.onrender.com/customers",
       { headers }
     )
     .then(res =>
       setCustomers(res.data));
 
     axios.get(
-      "http://localhost:8080/products",
+      "https://order-billing-system.onrender.com/products",
       { headers }
     )
     .then(res =>
@@ -46,7 +46,7 @@ function PlaceOrder() {
       localStorage.getItem("token");
 
     await axios.post(
-      "http://localhost:8080/orders/place-order",
+      "https://order-billing-system.onrender.com/place-order",
       {
         customerId,
         items: [

@@ -18,7 +18,7 @@ function Invoices() {
 
     const response = await axios.get(
 
-      "http://localhost:8080/invoices",
+      "https://order-billing-system.onrender.com/invoices",
 
       {
         headers: {
@@ -40,7 +40,7 @@ function Invoices() {
 
     await axios.put(
 
-      `http://localhost:8080/invoices/${id}/status/PAID`,
+      `https://order-billing-system.onrender.com/invoices/${id}/status/PAID`,
 
       {},
 

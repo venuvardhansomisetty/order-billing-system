@@ -27,28 +27,28 @@ function Dashboard() {
     };
 
     axios.get(
-      "http://localhost:8080/products",
+      "https://order-billing-system.onrender.com/products",
       { headers }
     )
     .then(res =>
       setProducts(res.data.length));
 
     axios.get(
-      "http://localhost:8080/customers",
+      "https://order-billing-system.onrender.com/customers",
       { headers }
     )
     .then(res =>
       setCustomers(res.data.length));
 
     axios.get(
-      "http://localhost:8080/orders",
+      "https://order-billing-system.onrender.com/orders",
       { headers }
     )
     .then(res =>
       setOrders(res.data.length));
 
     axios.get(
-      "http://localhost:8080/invoices",
+      "https://order-billing-system.onrender.com/invoices",
       { headers }
     )
     .then(res => {

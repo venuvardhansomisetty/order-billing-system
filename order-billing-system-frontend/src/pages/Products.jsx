@@ -29,7 +29,7 @@ function Products() {
       localStorage.getItem("token");
 
     const response = await axios.get(
-      "http://localhost:8080/products",
+      "https://order-billing-system.onrender.com/products",
       {
         headers: {
           Authorization:
@@ -47,7 +47,7 @@ function Products() {
       localStorage.getItem("token");
 
     await axios.post(
-      "http://localhost:8080/products",
+      "https://order-billing-system.onrender.com/products",
       {
         name,
         price,
@@ -75,7 +75,7 @@ function Products() {
       localStorage.getItem("token");
 
     await axios.put(
-      `http://localhost:8080/products/${editId}`,
+      `https://order-billing-system.onrender.com/products/${editId}`,
       {
         name: editName,
         price: editPrice,
@@ -101,7 +101,7 @@ function Products() {
       localStorage.getItem("token");
 
     await axios.delete(
-      `http://localhost:8080/products/${id}`,
+      `https://order-billing-system.onrender.com/products/${id}`,
       {
         headers: {
           Authorization:

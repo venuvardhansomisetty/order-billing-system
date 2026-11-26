@@ -29,7 +29,7 @@ function Customers() {
       localStorage.getItem("token");
 
     const response = await axios.get(
-      "http://localhost:8080/customers",
+      "https://order-billing-system.onrender.com/customers",
       {
         headers: {
           Authorization:
