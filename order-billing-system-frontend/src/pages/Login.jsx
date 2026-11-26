@@ -13,13 +13,14 @@ function Login() {
 
     try {
 
-const response = await axios.post(
-  "https://order-billing-system.onrender.com/users/login",
-  {
-    username,
-    password
-  }
-);
+      const response = await axios.post(
+        "https://order-billing-system.onrender.com/users/login",
+        {
+          username,
+          password
+        }
+      );
+
       localStorage.setItem(
         "token",
         response.data
@@ -32,52 +33,50 @@ const response = await axios.post(
       alert("Login Failed");
 
     }
+
   };
 
- return (
+  return (
 
-  <div className="login-container">
+    <div className="login-container">
 
-    <div className="login-card">
+      <div className="login-card">
 
-      <h1>
-        Order Billing System
-      </h1>
+        <h1>
+          Order Billing System
+        </h1>
 
-      <p className="login-subtitle">
+        <p className="login-subtitle">
+          Inventory & Billing Dashboard
+        </p>
 
-        Inventory & Billing Dashboard
+        <input
+          type="text"
+          placeholder="Username"
+          onChange={(e) =>
+            setUsername(e.target.value)}
+        />
 
-      </p>
+        <input
+          type="password"
+          placeholder="Password"
+          onChange={(e) =>
+            setPassword(e.target.value)}
+        />
 
-      <input
-        type="text"
-        placeholder="Username"
-        onChange={(e) =>
-          setUsername(e.target.value)}
-      />
+        <button
+          className="login-btn"
+          onClick={login}
+        >
+          Sign In
+        </button>
 
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) =>
-          setPassword(e.target.value)}
-      />
-
-      <button
-        className="login-btn"
-        onClick={login}
-      >
-
-        Sign In
-
-      </button>
+      </div>
 
     </div>
 
-  </div>
+  );
 
-);
 }
 
 export default Login;
