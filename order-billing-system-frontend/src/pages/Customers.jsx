@@ -48,7 +48,7 @@ function Customers() {
       localStorage.getItem("token");
 
     await axios.post(
-      "http://localhost:8080/customers",
+      "https://order-billing-system.onrender.com/customers",
       {
         name,
         email,
@@ -78,7 +78,7 @@ function Customers() {
       localStorage.getItem("token");
 
     await axios.put(
-      `http://localhost:8080/customers/${editId}`,
+      `https://order-billing-system.onrender.com/customers/${editId}`,
       {
         name: editName,
         email: editEmail,
@@ -105,7 +105,7 @@ function Customers() {
       localStorage.getItem("token");
 
     await axios.delete(
-      `http://localhost:8080/customers/${id}`,
+      `https://order-billing-system.onrender.com/customers/${id}`,
       {
         headers: {
           Authorization:
